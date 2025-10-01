@@ -1,0 +1,570 @@
+/* Reset e configurações base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis CSS para cores e estilos */
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1e40af;
+    --secondary-color: #10b981;
+    --success-color: #22c55e;
+    --background: #f8fafc;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 15px 50px rgba(37, 99, 235, 0.2);
+    
+    /* Cores vibrantes para os botões */
+    --button-gradient-start: #f97316;  /* Orange vibrante */
+    --button-gradient-end: #ea580c;    /* Orange escuro */
+    --button-hover-start: #dc2626;     /* Vermelho vibrante */
+    --button-hover-end: #b91c1c;       /* Vermelho escuro */
+    --button-success: #10b981;         /* Verde para resposta positiva */
+}
+
+/* Corpo da página */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: var(--background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+}
+
+/* Container principal */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+    margin-bottom: 100px
+}
+
+/* Card do quiz */
+.quiz-card {
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    max-width: 580px;
+    width: 100%;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;    
+}
+
+.quiz-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+/* Barra de progresso */
+.progress-container {
+    margin-bottom: 32px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+    opacity: 0.6;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 100px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3));
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(100px); }
+}
+
+.step-indicator {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+/* Etapas do quiz */
+.quiz-step {
+    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ícones gerais */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.icon-primary svg {
+    fill: var(--primary-color);
+}
+
+.icon-success svg {
+    fill: var(--success-color);
+}
+
+.icon-secondary svg {
+    fill: var(--text-secondary);
+}
+
+.option-button .icon {
+    vertical-align: middle;
+}
+/* Tipografia */
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 16px;
+    line-height: 1.3;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 40px;
+    margin-top: -8px;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+.subtitle strong {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 13px;
+}
+
+/* Badge de confiança - mais discreto */
+.trust-badge {
+    margin-top: 60px;
+	margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0.7;
+}
+
+.trust-badge-icon {
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+.trust-badge-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Pergunta - mais destaque */
+.question {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.question-number {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Container de opções */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Botões de opção - cores vibrantes e contrastantes */
+.option-button {
+    background: linear-gradient(135deg, var(--button-gradient-start), var(--button-gradient-end));
+    border: none;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 17px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+    transform: translateY(0);
+}
+
+/* Estilo específico para o botão "Sim" */
+.option-button:first-child {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+.option-button:first-child:hover {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.45);
+}
+
+/* Hover para botões "Não" e "Não sei" */
+.option-button:hover {
+    background: linear-gradient(135deg, var(--button-hover-start), var(--button-hover-end));
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(220, 38, 38, 0.4);
+}
+
+/* Ícones sempre brancos nos botões */
+.option-button .icon svg {
+    fill: white !important;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.option-button:hover .icon svg {
+    fill: white !important;
+    opacity: 1;
+    transform: scale(1.2) rotate(5deg);
+    animation: iconPop 0.5s ease;
+}
+
+@keyframes iconPop {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.3) rotate(-10deg); }
+    100% { transform: scale(1.2) rotate(5deg); }
+}
+
+.option-button:active {
+    transform: translateY(-2px) scale(1.02);
+    transition: all 0.1s ease;
+}
+
+/* Efeito de onda ao clicar */
+.option-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.option-button:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+/* Efeito de brilho */
+.option-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.option-button:hover::before {
+    left: 100%;
+}
+
+/* Animação de pulse para chamar atenção */
+.option-button {
+    animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+    0%, 100% { 
+        box-shadow: 0 6px 20px rgba(249, 115, 22, 0.35);
+    }
+    50% { 
+        box-shadow: 0 8px 28px rgba(249, 115, 22, 0.5);
+    }
+}
+
+.option-button:first-child {
+    animation: buttonGlowGreen 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlowGreen {
+    0%, 100% { 
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+    }
+    50% { 
+        box-shadow: 0 8px 28px rgba(16, 185, 129, 0.5);
+    }
+}
+
+.option-button:hover {
+    animation: none;
+}
+
+/* Ajuste no container para dar mais destaque aos botões */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+/* Micro-interação no texto */
+.option-button span:not(.icon) {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.option-button:hover span:not(.icon) {
+    transform: translateX(4px);
+}
+
+/* Aviso de redirecionamento - mais discreto */
+.redirect-notice {
+    margin-top: 16px;
+    padding: 8px 10px;
+    background: rgba(240, 249, 255, 0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.redirect-notice:hover {
+    opacity: 0.7;
+}
+
+.redirect-notice svg {
+    width: 12px;
+    height: 12px;
+    fill: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+/* Preloader */
+.preloader-container {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.preloader-container.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.spinner {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+    position: relative;
+}
+
+.spinner-circle {
+    width: 100%;
+    height: 100%;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.preloader-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.preloader-subtext {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+    0% { content: ''; }
+    25% { content: '.'; }
+    50% { content: '..'; }
+    75% { content: '...'; }
+    100% { content: ''; }
+}
+
+/* Footer */
+footer {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 20px;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.company-info {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+    .quiz-card {
+        padding: 24px;
+        border-radius: 16px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .question {
+        font-size: 16px;
+    }
+
+    .option-button {
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    .footer-links {
+        gap: 16px;
+        font-size: 11px;
+    }
+}
+
+/* Classes utilitárias */
+.hidden {
+    display: none !important;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}

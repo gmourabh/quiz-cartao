@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Cartões</title>
+    <meta name="description" content="Descubra a seleção de cartões que podem se adequar ao seu perfil.">
+    
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MJZ39SN5');</script>
+<!-- End Google Tag Manager -->
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "o1b3mz8usj");
+</script>
+<!-- End Microsoft Clarity -->
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJZ39SN5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+        <div class="quiz-card">
+            <div class="step-indicator">
+                <span id="currentStep">1</span> de 2 etapas concluídas
+            </div>
+            <!-- Barra de Progresso -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 50%;"></div>
+                </div>
+            </div>
+
+            <!-- Etapa 1 -->
+            <div class="quiz-step" id="step1">
+                <h2>Descubra cartão ideal pra você</h2>
+                <p class="subtitle">
+                    <strong>( Leva menos de 1 minuto )</strong><br>                    
+                </p>
+
+                <div class="question">
+                    <span class="question-number">1</span>
+                    <span>Você possui algum cartão de crédito?</span>
+                </div>
+
+                <div class="options-container">
+                    <button class="option-button" onclick="handleAnswer('step1', 'sim')">
+                        <span class="icon icon-success">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+                            </svg>
+                        </span>
+                        Sim, tenho pelo menos 1 cartão
+                    </button>
+                    <button class="option-button" onclick="handleAnswer('step1', 'nao')">
+                        <span class="icon icon-secondary">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z"/>
+                            </svg>
+                        </span>
+                        Não tenho
+                    </button>
+                </div>
+
+                <div class="trust-badge">
+                    <span class="icon icon-primary">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L4 7V12C4 16.55 6.84 20.74 11 22C15.16 20.74 20 16.55 20 12V7L12 2ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V8.3L12 4.19V11.99Z"/>
+                        </svg>
+                    </span>
+                    <span class="trust-badge-text">Consulta 100% gratuita e segura</span>
+                </div>				
+            </div>
+
+            <!-- Etapa 2 -->
+            <div class="quiz-step hidden" id="step2">
+                <h2>Última Verificação</h2>
+                <p class="subtitle">
+                    Esta informação é importante para identificar<br>
+                    <strong>os cartões disponíveis para você</strong>
+                </p>
+
+                <div class="question">
+                    <span class="question-number">2</span>
+                    <span>Qual limite você deseja?</span>
+                </div>
+
+                <div class="options-container">
+                    <button class="option-button" onclick="handleAnswer('step2', 'ate_2500')">
+                        <span class="icon icon-primary">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.31 11.14C10.54 10.69 9.97 10.2 9.97 9.47C9.97 8.63 10.76 8.04 12.07 8.04C13.45 8.04 13.97 8.7 14.01 9.68H15.72C15.67 8.34 14.85 7.11 13.23 6.71V5H10.9V6.69C9.39 7.01 8.18 7.99 8.18 9.5C8.18 11.29 9.67 12.19 11.84 12.71C13.79 13.17 14.18 13.86 14.18 14.58C14.18 15.11 13.79 15.97 12.08 15.97C10.48 15.97 9.85 15.25 9.76 14.33H8.04C8.14 16.03 9.4 16.99 10.9 17.3V19H13.24V17.33C14.76 17.04 15.96 16.17 15.97 14.56C15.96 12.36 14.07 11.6 12.31 11.14Z"/>
+                            </svg>
+                        </span>
+                        Até R$ 2.500
+                    </button>
+                    <button class="option-button" onclick="handleAnswer('step2', 'entre_2500e5000')">
+                        <span class="icon icon-primary">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.31 11.14C10.54 10.69 9.97 10.2 9.97 9.47C9.97 8.63 10.76 8.04 12.07 8.04C13.45 8.04 13.97 8.7 14.01 9.68H15.72C15.67 8.34 14.85 7.11 13.23 6.71V5H10.9V6.69C9.39 7.01 8.18 7.99 8.18 9.5C8.18 11.29 9.67 12.19 11.84 12.71C13.79 13.17 14.18 13.86 14.18 14.58C14.18 15.11 13.79 15.97 12.08 15.97C10.48 15.97 9.85 15.25 9.76 14.33H8.04C8.14 16.03 9.4 16.99 10.9 17.3V19H13.24V17.33C14.76 17.04 15.96 16.17 15.97 14.56C15.96 12.36 14.07 11.6 12.31 11.14Z"/>
+                            </svg>
+                        </span>
+                        Entre de R$ 2.500 e R$ 5.000
+                    </button>
+                    <button class="option-button" onclick="handleAnswer('step2', 'acimade_5000')">
+                        <span class="icon icon-secondary">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L4 7V12C4 16.55 6.84 20.74 11 22C15.16 20.74 20 16.55 20 12V7L12 2ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V8.3L12 4.19V11.99Z"/>
+                            </svg>
+                        </span>
+                        Acima de R$ 5.000
+                    </button>
+                </div>
+                
+                <div class="redirect-notice">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    <span>Ao responder, você será direcionado para a página de resultados</span>
+                </div>
+
+                <div class="trust-badge">
+                    <span class="icon icon-success">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"/>
+                        </svg>
+                    </span>
+                    <span class="trust-badge-text">Seus dados estão protegidos</span>
+                </div>				
+				
+            </div>
+
+            <!-- Preloader -->
+            <div class="preloader-container" id="preloader">
+                <div class="spinner">
+                    <div class="spinner-circle"></div>
+                </div>
+                <div class="preloader-text">
+                    Buscando cartões disponíveis<span class="loading-dots"></span>
+                </div>
+                <div class="preloader-subtext">
+                    Aguarde alguns segundos...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="company-info">
+                © 2025 BIG FLOW LTDA - CNPJ: 41.505.895/0001-01
+            </div>
+            <div class="footer-links">
+                <a href="https://detranmg.net.br/termos-de-uso/" target="_blank">Termos de Uso</a>
+                <a href="https://detranmg.net.br/politica-de-privacidade/" target="_blank">Política de Privacidade</a>
+                <a href="https://detranmg.net.br/sobre/" target="_blank">Sobre Nós</a>
+                <a href="https://detranmg.net.br/contato/" target="_blank">Contato</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Google Analytics / Google Ads - Adicione seu código aqui -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+</body>
+</html>
